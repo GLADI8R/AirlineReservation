@@ -7,6 +7,6 @@ import java.util.List;
 
 @Service
 public interface AirportService {
-    public Airport saveAirport(Airport airport);
-    public List<Airport> getAllAirports();
+    Airport saveAirport(Airport airport);
+    List<Airport> getAllAirports();
 }

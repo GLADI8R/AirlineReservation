@@ -26,8 +26,9 @@ public class AirportServiceImpl implements AirportService {
 
     @Override
     public List<Airport> getAllAirports() {
+        System.out.println("In ServiceImpl");
 
-        return airportRepository.findAll();
+        return airportRepository.findAllAirport();
     }
 
 

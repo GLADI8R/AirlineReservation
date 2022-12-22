@@ -16,6 +16,9 @@ public class Airport {
     private String country;
     private String code_id;
 
+    public Airport() {
+    }
+
     public Airport(int id, String city, String country, String code_id) {
         this.id = id;
         this.city = city;
