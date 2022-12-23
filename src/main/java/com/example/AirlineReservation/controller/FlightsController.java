@@ -6,6 +6,7 @@ import com.example.AirlineReservation.service.FlightService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @RestController
@@ -34,5 +35,14 @@ public class FlightsController {
         }
 
         return flightService.getFlightSeats(flight);
+    }
+
+
+
+    @GetMapping("/search")
+    public List<Flight> searchUserFlights(@RequestParam(required = true, name = "dept") String dept,
+                                          @RequestParam(required = true, name="arr") String arr,
+                                          @RequestParam(required = true, name = "date")LocalDate date) {
+        return flightService.searchFlights(date, dept, arr);
     }
 }

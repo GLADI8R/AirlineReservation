@@ -12,9 +12,9 @@ import java.time.LocalTime;
 public class Flight {
 
     @Id
-    private int flight_id;
+    private Integer flight_id;
     private int aircraft_id, route_id, fare, seats_left;
-    private String dept_code, arr_code;
+    private String dept_code, arr_code, dept_city, arr_city, dept_name, arr_name;
     private LocalDate dept_date;
     private LocalTime dept_time, arr_time;
 
@@ -22,7 +22,7 @@ public class Flight {
     public Flight() {
     }
 
-    public Flight(int flight_id, int aircraft_id, int route_id, int fare, int seats_left, String dept_code, String arr_code, LocalDate dept_date, LocalTime dept_time, LocalTime arr_time) {
+    public Flight(Integer flight_id, int aircraft_id, int route_id, int fare, int seats_left, String dept_code, String arr_code, LocalDate dept_date, LocalTime dept_time, LocalTime arr_time) {
         this.flight_id = flight_id;
         this.aircraft_id = aircraft_id;
         this.route_id = route_id;
@@ -35,11 +35,25 @@ public class Flight {
         this.arr_time = arr_time;
     }
 
-    public int getFlight_id() {
+    public Flight(Integer flight_id, int fare, LocalDate dept_date, String dept_code, String arr_code, LocalTime dept_time, LocalTime arr_time, String dept_city, String dept_name, String arr_city, String arr_name) {
+        this.flight_id = flight_id;
+        this.fare = fare;
+        this.dept_date = dept_date;
+        this.dept_code = dept_code;
+        this.arr_code = arr_code;
+        this.dept_time = dept_time;
+        this.arr_time = arr_time;
+        this.dept_city = dept_city;
+        this.dept_name = dept_name;
+        this.arr_city = arr_city;
+        this.arr_name = arr_name;
+    }
+
+    public Integer getFlight_id() {
         return flight_id;
     }
 
-    public void setFlight_id(int flight_id) {
+    public void setFlight_id(Integer flight_id) {
         this.flight_id = flight_id;
     }
 
