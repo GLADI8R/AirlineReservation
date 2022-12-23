@@ -9,14 +9,14 @@ public class User {
 
     @Id
     private int user_id;
-    private int mobile;
+    private String mobile;
     private String name, email, password;
-    private boolean admin;
+    private Boolean admin;
 
     public User() {
     }
 
-    public User(int user_id, int mobile, String name, String email, String password, boolean admin) {
+    public User(int user_id, String mobile, String name, String email, String password, Boolean admin) {
         this.user_id = user_id;
         this.mobile = mobile;
         this.name = name;
@@ -33,11 +33,11 @@ public class User {
         this.user_id = user_id;
     }
 
-    public int getMobile() {
+    public String getMobile() {
         return mobile;
     }
 
-    public void setMobile(int mobile) {
+    public void setMobile(String mobile) {
         this.mobile = mobile;
     }
 
@@ -65,11 +65,11 @@ public class User {
         this.password = password;
     }
 
-    public boolean isAdmin() {
+    public Boolean isAdmin() {
         return admin;
     }
 
-    public void setAdmin(boolean admin) {
+    public void setAdmin(Boolean admin) {
         this.admin = admin;
     }
 }

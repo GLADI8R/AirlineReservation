@@ -24,4 +24,9 @@ public class FlightServiceImpl implements FlightService{
         return flightsRepository.getAllFlights();
     }
 
+    @Override
+    public List<Integer> getFlightSeats(Flight flight) {
+        return flightsRepository.getFlightSeats(flight);
+    }
+
 }

@@ -14,4 +14,5 @@ public interface BookingService {
     List<Booking> getUserBookings(User user);
 
     Ticket getUserTickets(User user, Booking booking);
+
 }

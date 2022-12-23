@@ -4,10 +4,7 @@ package com.example.AirlineReservation.controller;
 import com.example.AirlineReservation.model.Flight;
 import com.example.AirlineReservation.service.FlightService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -19,8 +16,23 @@ public class FlightsController {
     @Autowired
     private FlightService flightService;
 
-    @GetMapping("/flights")
+    @GetMapping("/allFlights")
     public List<Flight> getFlights() {
         return flightService.getAllFlights();
+    }
+
+    @GetMapping("/flightSeats/{id}")
+    public List<Integer> flightSeats(@PathVariable int id) {
+        List<Flight> allFlights = flightService.getAllFlights();
+        Flight flight = null;
+
+        for(Flight f : allFlights) {
+            if(f.getFlight_id() == id) {
+                flight = f;
+                break;
+            }
+        }
+
+        return flightService.getFlightSeats(flight);
     }
 }

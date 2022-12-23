@@ -4,6 +4,7 @@ package com.example.AirlineReservation.repository;
 import com.example.AirlineReservation.model.Flight;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -15,5 +16,10 @@ public interface FlightsRepository extends JpaRepository<Flight, Integer> {
     List<Flight> getAllFlights();
 
     //Search Flights Query
+
+
+    // Get seats Query
+    @Query(value = "SELECT seat_no FROM ticket t WHERE flight_id=:#{#flight.flight_id}", nativeQuery = true)
+    List<Integer> getFlightSeats(@Param("flight") Flight flight);
 
 }

@@ -17,7 +17,4 @@ public interface BookingRepository extends JpaRepository<Booking, Integer> {
     @Query(value="select * from booking where user_id =:#{#user.user_id}", nativeQuery = true)
     List<Booking> getUserBookings(@Param("user") User user);
 
-    @Query(value = "select p.name, f.dept_time, f.dept_date, r.dept_code, r.arr_code, t.ticket_id, f.route_id, f.flight_id, t.seat_no, b.booking_timestamp from booking b, ticket t, passenger p, flight f, route r where user_id=:#{#user.user_id} and f.flight_id=t.flight_id and b.booking_id=:#{#booking.booking_id} and b.booking_id=t.booking_id and f.route_id=r.route_id and p.ticket_id=t.ticket_id", nativeQuery = true)
-    Ticket getUserTickets(@Param("user") User user, @Param("booking") Booking booking);
-
 }

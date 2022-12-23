@@ -9,4 +9,6 @@ import java.util.List;
 public interface FlightService {
 
     List<Flight> getAllFlights();
+
+    List<Integer> getFlightSeats(Flight flight);
 }
