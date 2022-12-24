@@ -1,13 +1,13 @@
-HELP.md
+server/HELP.md
 target/
-!.mvn/wrapper/maven-wrapper.jar
+!server/.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
 !**/src/test/**/target/
 
 
 ################
-!**src/main/resources/application.properties
-*.xml
+!server/src/main/resources/application.properties
+!server/*.xml
 
 
 ### STS ###
@@ -20,7 +20,7 @@ target/
 .sts4-cache
 
 ### IntelliJ IDEA ###
-.idea
+server/.idea
 *.iws
 *.iml
 *.ipr
