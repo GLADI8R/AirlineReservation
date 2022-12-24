@@ -4,7 +4,7 @@ import Home from './components/Home/Home';
 
 import './App.css';
 import Airports from './components/Airports/AirportsList';
-import Flights from './components/Flights/Flights';
+import Flights from './components/Flights/FlightsList';
 import { GlobalProvider } from './Context/GlobalState';
 import AddAirport from './components/Airports/AddAirport';
 

@@ -54,7 +54,24 @@ export const GlobalProvider = (props: { children: any }) => {
 				payload: err.response.data.error
 			});
 		}
-	};
+	}
+
+    async function getAllFlights () {
+        try {
+            const res = await axios.get('http://localhost:8080/v1/api/getFlights');
+            console.log(res.data);
+            dispatch({
+                type: 'ALL_FLIGHTS',
+                payload: res.data
+            });
+
+        } catch (err: any) {
+            dispatch({
+                type: 'ERROR',
+                payload: err.response.data.error
+            });
+        }
+    }
 
 
     return (
@@ -63,7 +80,8 @@ export const GlobalProvider = (props: { children: any }) => {
             loading: state.loading,
             airports: state.airports,
             getAllAirports,
-            addAirport
+            addAirport,
+            getAllFlights
         }}>
             {props.children}
         </GlobalContext.Provider>

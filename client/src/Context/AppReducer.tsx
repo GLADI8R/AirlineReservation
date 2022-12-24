@@ -9,6 +9,12 @@ export default (state: any, action: { type: any; payload: any; }) => {
                 airports: action.payload   
             }
 
+        case 'ALL_FLIGHTS':
+            return {
+                ...state,
+                allFlights: action.payload
+            }
+
         case 'ADD_AIRPORT':
             return {
                 ...state,

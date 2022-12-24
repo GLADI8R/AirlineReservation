@@ -1,39 +1,37 @@
 package com.example.AirlineReservation.model;
 
 import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import org.springframework.beans.factory.annotation.Autowired;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
 
+
 @Entity
-public class Flight {
+public class FlightById {
 
     @Id
     private Integer flight_id;
-    private int aircraft_id, route_id, fare, seats_left;
-    private String dept_code, arr_code;
+    private int fare;
+    private String dept_code, arr_code, dept_city, arr_city, dept_name, arr_name;
     private LocalDate dept_date;
     private LocalTime dept_time, arr_time;
 
-
-    public Flight() {
+    public FlightById() {
     }
 
-    public Flight(Integer flight_id, int aircraft_id, int route_id, int fare, int seats_left, String dept_code, String arr_code, LocalDate dept_date, LocalTime dept_time, LocalTime arr_time) {
+    public FlightById(Integer flight_id, int fare, LocalDate dept_date, String dept_code, String arr_code, LocalTime dept_time, LocalTime arr_time, String dept_city, String dept_name, String arr_city, String arr_name) {
         this.flight_id = flight_id;
-        this.aircraft_id = aircraft_id;
-        this.route_id = route_id;
         this.fare = fare;
-        this.seats_left = seats_left;
+        this.dept_date = dept_date;
         this.dept_code = dept_code;
         this.arr_code = arr_code;
-        this.dept_date = dept_date;
         this.dept_time = dept_time;
         this.arr_time = arr_time;
+        this.dept_city = dept_city;
+        this.dept_name = dept_name;
+        this.arr_city = arr_city;
+        this.arr_name = arr_name;
     }
 
 
@@ -45,36 +43,12 @@ public class Flight {
         this.flight_id = flight_id;
     }
 
-    public int getAircraft_id() {
-        return aircraft_id;
-    }
-
-    public void setAircraft_id(int aircraft_id) {
-        this.aircraft_id = aircraft_id;
-    }
-
-    public int getRoute_id() {
-        return route_id;
-    }
-
-    public void setRoute_id(int route_id) {
-        this.route_id = route_id;
-    }
-
     public int getFare() {
         return fare;
     }
 
     public void setFare(int fare) {
         this.fare = fare;
-    }
-
-    public int getSeats_left() {
-        return seats_left;
-    }
-
-    public void setSeats_left(int seats_left) {
-        this.seats_left = seats_left;
     }
 
     public String getDept_code() {
@@ -91,6 +65,38 @@ public class Flight {
 
     public void setArr_code(String arr_code) {
         this.arr_code = arr_code;
+    }
+
+    public String getDept_city() {
+        return dept_city;
+    }
+
+    public void setDept_city(String dept_city) {
+        this.dept_city = dept_city;
+    }
+
+    public String getArr_city() {
+        return arr_city;
+    }
+
+    public void setArr_city(String arr_city) {
+        this.arr_city = arr_city;
+    }
+
+    public String getDept_name() {
+        return dept_name;
+    }
+
+    public void setDept_name(String dept_name) {
+        this.dept_name = dept_name;
+    }
+
+    public String getArr_name() {
+        return arr_name;
+    }
+
+    public void setArr_name(String arr_name) {
+        this.arr_name = arr_name;
     }
 
     public LocalDate getDept_date() {

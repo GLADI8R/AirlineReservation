@@ -1,6 +1,7 @@
 package com.example.AirlineReservation.service;
 
 import com.example.AirlineReservation.model.Flight;
+import com.example.AirlineReservation.repository.FlightsByIdRepository;
 import com.example.AirlineReservation.repository.FlightsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,9 +15,13 @@ public class FlightServiceImpl implements FlightService{
     @Autowired
     private final FlightsRepository flightsRepository;
 
+    @Autowired
+    private final FlightsByIdRepository flightsByIdRepository;
 
-    public FlightServiceImpl(FlightsRepository flightsRepository) {
+
+    public FlightServiceImpl(FlightsRepository flightsRepository, FlightsByIdRepository flightsByIdRepository) {
         this.flightsRepository = flightsRepository;
+        this.flightsByIdRepository = flightsByIdRepository;
     }
 
     @Override
@@ -31,7 +36,7 @@ public class FlightServiceImpl implements FlightService{
 
     @Override
     public List<Flight> searchFlights(LocalDate date, String a1, String a2) {
-        return flightsRepository.searchFlights(date, a1, a2);
+        return flightsByIdRepository.searchFlights(date, a1, a2);
     }
 
 }
