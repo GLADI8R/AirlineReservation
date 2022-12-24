@@ -6,7 +6,13 @@ export default (state: any, action: { type: any; payload: any; }) => {
         case 'GET_AIRPORTS':
             return {
                 ...state,
-                airports: action.payload
+                airports: action.payload   
+            }
+
+        case 'ADD_AIRPORT':
+            return {
+                ...state,
+                airports: [...state.airports, action.payload]
             }
 
 

@@ -33,12 +33,37 @@ export const GlobalProvider = (props: { children: any }) => {
     }
 
 
+    // Add Airport service
+    async function addAirport(airport: Object) {
+		const config = {
+			headers: {
+				'Content-Type': 'application/json'
+			}
+		}
+
+		try {
+			const res = await axios.post('http://localhost:8080/v1/api/add', airport, config);
+
+			dispatch({
+			type: 'ADD_AIRPORT',
+			payload: res.data.data
+		});
+		} catch (err: any) {
+			dispatch({
+				type: 'ERROR',
+				payload: err.response.data.error
+			});
+		}
+	};
+
+
     return (
         <GlobalContext.Provider value={{
             error: state.error,
             loading: state.loading,
             airports: state.airports,
-            getAllAirports
+            getAllAirports,
+            addAirport
         }}>
             {props.children}
         </GlobalContext.Provider>

@@ -8,7 +8,7 @@ const Navbar = () => {
             <nav>
                 <ul>
                     <li><Link to="/airports">Airports</Link></li>
-                    <li><Link to="/Flights">Flights</Link></li>
+                    <li><Link to="/flights">Flights</Link></li>
                 </ul>
             </nav>
         </Fragment>

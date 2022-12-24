@@ -1,4 +1,5 @@
 import { Fragment, useContext, useEffect } from "react";
+import { Link } from "react-router-dom";
 import { GlobalContext } from "../../Context/GlobalState";
 import Airport from "./Airport";
 
@@ -15,7 +16,6 @@ const Airports = () => {
         <Fragment>
             <h1>Airports</h1>
 
-            {/* displays results */}
             <ul>
                 {airports.map((airport:any) => (
                     <Airport city={airport.city} country={airport.country} code_id={airport.code_id} /> 
@@ -23,7 +23,7 @@ const Airports = () => {
             </ul>
 
 
-            <button>Add Airport</button>
+            <button><Link to="/addAirport">New Airport</Link></button>
         </Fragment>
     );
 };

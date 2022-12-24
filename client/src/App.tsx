@@ -6,6 +6,7 @@ import './App.css';
 import Airports from './components/Airports/AirportsList';
 import Flights from './components/Flights/Flights';
 import { GlobalProvider } from './Context/GlobalState';
+import AddAirport from './components/Airports/AddAirport';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/airports" element={<Airports />} />
             <Route path="/flights" element={<Flights />} />
+            <Route path="/addAirport" element={<AddAirport />} />
           </Routes>
         </div>
       </Router>
