@@ -28,6 +28,17 @@ export default (state: any, action: { type: any; payload: any; }) => {
                 error: action.payload
             }
 
+        case 'LOGIN_USER':
+            return {
+                ...state,
+                name: action.payload.name,
+                user_id: action.payload.user_id,
+                email: action.payload.email,
+                password: action.payload.password,
+                mobile: action.payload.mobile,
+                admin: action.payload.admin
+            }
+
         default:
             return state;
     }
