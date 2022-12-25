@@ -7,7 +7,7 @@ const Login = () => {
     const [mail, setMail] = useState('');
     const [pwd, setPwd] = useState('');
 
-    const loginUser = useContext(GlobalContext);
+    const {loginUser} = useContext(GlobalContext);
 
     const onSubmit = (e: any) => {
         e.preventDefault();
@@ -29,7 +29,7 @@ const Login = () => {
                     <input type="password" value={pwd} onChange={(e) => setPwd(e.target.value)} placeholder="Enter Password" />
                 </div>
 
-                <button>Login</button>
+                <button><Link to="/" >Login</Link></button>
             </form>
         </>
     );

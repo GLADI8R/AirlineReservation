@@ -8,7 +8,7 @@ const AddAirport = () => {
     const [country, setCountry] = useState('');
     const [code_id, setCode_id] = useState('');
 
-    const addAirport = useContext(GlobalContext);
+    const {addAirport} = useContext(GlobalContext);
 
     const onSubmit = (e: any) => {
         e.preventDefault();

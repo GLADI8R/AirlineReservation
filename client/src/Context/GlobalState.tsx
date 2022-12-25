@@ -80,10 +80,9 @@ export const GlobalProvider = (props: { children: any }) => {
     }
 
     async function loginUser(email: String, password: String) {
-        console.log(email);
+        
         try {
             const res = await axios.get('http://localhost:8080/v1/api/loginUser', { params: { email, password } });
-            console.log(res);
             dispatch({
                 type: 'LOGIN_USER',
                 payload: res.data
