@@ -41,9 +41,9 @@ public class FlightsController {
 
 
     @GetMapping("/search")
-    public List<Flight> searchUserFlights(@RequestParam(required = true, name = "dept") String dept,
-                                          @RequestParam(required = true, name="arr") String arr,
-                                          @RequestParam(required = true, name = "date")LocalDate date) {
+    public List<Flight> searchUserFlights(@RequestParam(required = true, value = "dept") String dept,
+                                          @RequestParam(required = true, value = "arr") String arr,
+                                          @RequestParam(required = true, value = "date")LocalDate date) {
         return flightService.searchFlights(date, dept, arr);
     }
 }

@@ -45,16 +45,15 @@ export const GlobalProvider = (props: { children: any }) => {
     async function addAirport(airport: Object) {
         const config = {
             headers: {
-                'Content-Type': 'application/json'
+                'content-Type': 'application/json'
             }
         }
 
         try {
             const res = await axios.post('http://localhost:8080/v1/api/add', airport, config);
-
             dispatch({
                 type: 'ADD_AIRPORT',
-                payload: res.data.data
+                payload: res.data
             });
         } catch (err: any) {
             dispatch({

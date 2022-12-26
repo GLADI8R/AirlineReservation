@@ -9,9 +9,8 @@ import jakarta.persistence.Id;
 public class Airport {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-
-    private int id;
+    @GeneratedValue
+    private Integer id;
     private String city;
     private String country;
     private String code_id;
@@ -19,18 +18,18 @@ public class Airport {
     public Airport() {
     }
 
-    public Airport(int id, String city, String country, String code_id) {
+    public Airport(Integer id, String city, String country, String code_id) {
         this.id = id;
         this.city = city;
         this.country = country;
         this.code_id = code_id;
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

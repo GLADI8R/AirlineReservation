@@ -14,9 +14,9 @@ const AddAirport = () => {
         e.preventDefault();
 
         const newAirport = {
-            city,
-            country,
-            code_id
+            "city": city,
+            "country": country,
+            "code_id": code_id
         };
 
         addAirport(newAirport);
@@ -40,7 +40,7 @@ const AddAirport = () => {
                     <input type="text" value={code_id} onChange={(e) => setCode_id(e.target.value)} placeholder="Enter code" />
                 </div>
                 
-                <button className="btn"><Link to="/airports">Add Airport</Link></button>
+                <button><Link to="/airports">Add Airport</Link></button>
             </form>
         </>
     );

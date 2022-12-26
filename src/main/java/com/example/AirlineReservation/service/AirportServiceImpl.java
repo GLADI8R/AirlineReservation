@@ -20,7 +20,6 @@ public class AirportServiceImpl implements AirportService {
 
     @Override
     public Airport saveAirport(Airport airport) {
-
         return airportRepository.save(airport);
     }
 
