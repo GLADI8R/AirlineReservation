@@ -39,6 +39,23 @@ export default (state: any, action: { type: any; payload: any; }) => {
                 admin: action.payload.admin
             }
 
+        case 'LOGOUT_USER':
+            return {
+                ...state,
+                name: null,
+                user_id: null,
+                email: null,
+                password: null,
+                mobile: null,
+                admin: false
+            }
+
+        case 'GET_FLIGHT_SEATS':
+            return {
+                ...state,
+                flightSeats: action.payload
+            }
+
         default:
             return state;
     }

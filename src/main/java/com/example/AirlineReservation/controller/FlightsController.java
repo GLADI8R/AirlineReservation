@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Objects;
 
 @RestController
 @RequestMapping("/v1/api")
@@ -22,13 +23,13 @@ public class FlightsController {
         return flightService.getAllFlights();
     }
 
-    @GetMapping("/flightSeats/{id}")
-    public List<Integer> flightSeats(@PathVariable int id) {
+    @GetMapping("/flightSeats")
+    public List<Integer> flightSeats(@RequestParam(value="id", required = true) Integer id) {
         List<Flight> allFlights = flightService.getAllFlights();
         Flight flight = null;
 
         for(Flight f : allFlights) {
-            if(f.getFlight_id() == id) {
+            if(Objects.equals(f.getFlight_id(), id)) {
                 flight = f;
                 break;
             }

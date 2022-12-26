@@ -8,7 +8,7 @@ const Home = () => {
     return(
         <Fragment>
             <h1>Home</h1>
-            <h2>Hi {name}!</h2>
+            <h2>Welcome{ name}!</h2>
         </Fragment>       
     );
 }

@@ -14,6 +14,7 @@ const initState: any = {
     loading: true,
     airports: [],
     allFlights: [],
+    flightSeats: [],
 };
 
 export const GlobalContext = createContext(initState);
@@ -95,6 +96,21 @@ export const GlobalProvider = (props: { children: any }) => {
         }
     }
 
+    async function getFlightSeats(id: any) {
+        try {
+            const res = await axios.get('http://localhost:8080/v1/api/flightSeats', { params: {id} });
+            dispatch({
+                type: 'GET_FLIGHT_SEATS',
+                payload: res.data
+            })
+        } catch (err: any) {
+            dispatch({
+                type: 'ERROR',
+                payload: err.response.data.error
+            })
+        }
+    }
+
 
     return (
         <GlobalContext.Provider value={{
@@ -108,10 +124,12 @@ export const GlobalProvider = (props: { children: any }) => {
             loading: state.loading,
             airports: state.airports,
             allFlights: state.allFlights,
+            flightSeats: state.flightSeats,
             getAllAirports,
             addAirport,
             getAllFlights,
-            loginUser
+            loginUser,
+            getFlightSeats,
         }}>
             {props.children}
         </GlobalContext.Provider>
