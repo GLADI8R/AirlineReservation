@@ -8,6 +8,8 @@ import Flights from './components/Flights/FlightsList';
 import { GlobalProvider } from './Context/GlobalState';
 import AddAirport from './components/Airports/AddAirport';
 import Login from './components/Login/Login';
+import SearchFlights from './components/Flights/SearchFlights';
+import SearchFlightsList from './components/Flights/SearchFlightsList';
 
 function App() {
   return (
@@ -21,6 +23,8 @@ function App() {
             <Route path="/flights" element={<Flights />} />
             <Route path="/addAirport" element={<AddAirport />} />
             <Route path="/login" element={<Login />} />
+            <Route path="/search" element={<SearchFlights />}></Route>
+            <Route path="/searchFlights" element={< SearchFlightsList />} />
           </Routes>
         </div>
       </Router>
