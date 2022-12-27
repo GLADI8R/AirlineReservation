@@ -24,20 +24,20 @@ public class BookingController {
     private UserService userService;
 
 
-    @GetMapping("/booking/{id}")
-    public List<Ticket> getUserTickets(@PathVariable int id) {
+    @GetMapping("/booking")
+    public List<Ticket> getUserTickets(@RequestParam(value="id", required = true) Integer id) {
         List<User> allUsers = userService.getAllUsers();
         User user = null;
 
         for(User u:allUsers) {
-            if(id == u.getUser_id()) {
+            if(u.getUser_id() == id) {
                 user = u;
                 break;
             }
         }
 
         List<Booking> userBookings = bookingService.getUserBookings(user);
-        List<Ticket> userTickets = new ArrayList<Ticket>();
+        List<Ticket> userTickets = new ArrayList<>();
 
         int n = userBookings.size();
 

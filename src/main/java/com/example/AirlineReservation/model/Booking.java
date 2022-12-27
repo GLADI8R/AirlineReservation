@@ -1,6 +1,7 @@
 package com.example.AirlineReservation.model;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 
 import java.time.LocalDateTime;
@@ -9,11 +10,12 @@ import java.time.LocalDateTime;
 public class Booking {
 
     @Id
-    private int booking_id;
-    private int user_id;
+    @GeneratedValue
+    private Integer booking_id;
+    private Integer user_id;
     private LocalDateTime booking_timestamp;
 
-    public Booking(int booking_id, int user_id, LocalDateTime booking_timestamp) {
+    public Booking(Integer booking_id, Integer user_id, LocalDateTime booking_timestamp) {
         this.booking_id = booking_id;
         this.user_id = user_id;
         this.booking_timestamp = booking_timestamp;
@@ -22,19 +24,19 @@ public class Booking {
     public Booking() {
     }
 
-    public int getBooking_id() {
+    public Integer getBooking_id() {
         return booking_id;
     }
 
-    public void setBooking_id(int booking_id) {
+    public void setBooking_id(Integer booking_id) {
         this.booking_id = booking_id;
     }
 
-    public int getUser_id() {
+    public Integer getUser_id() {
         return user_id;
     }
 
-    public void setUser_id(int user_id) {
+    public void setUser_id(Integer user_id) {
         this.user_id = user_id;
     }
 

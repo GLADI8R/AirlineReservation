@@ -62,6 +62,12 @@ export default (state: any, action: { type: any; payload: any; }) => {
                 searchFlights: action.payload
             }
 
+        case 'USER_BOOKINGS':
+            return {
+                ...state,
+                userBookings: action.payload
+            }
+
         default:
             return state;
     }

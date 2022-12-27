@@ -7,13 +7,14 @@ const Login = () => {
     const [mail, setMail] = useState('');
     const [pwd, setPwd] = useState('');
 
-    const {loginUser} = useContext(GlobalContext);
+    const {user_id, loginUser} = useContext(GlobalContext);
 
     const onSubmit = (e: any) => {
         e.preventDefault();
 
         loginUser(mail, pwd);
     }
+
 
     return (
         <>
