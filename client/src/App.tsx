@@ -10,6 +10,7 @@ import AddAirport from './components/Airports/AddAirport';
 import Login from './components/Login/Login';
 import SearchFlights from './components/Flights/SearchFlights';
 import SearchFlightsList from './components/Flights/SearchFlightsList';
+import Logout from './components/Login/Logout';
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
             <Route path="/login" element={<Login />} />
             <Route path="/search" element={<SearchFlights />}></Route>
             <Route path="/searchFlights" element={< SearchFlightsList />} />
+            <Route path="/logout" element={<Logout />} />
           </Routes>
         </div>
       </Router>

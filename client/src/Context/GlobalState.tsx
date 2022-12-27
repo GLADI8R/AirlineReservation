@@ -96,6 +96,21 @@ export const GlobalProvider = (props: { children: any }) => {
         }
     }
 
+    async function logoutUser() {
+        try {
+            dispatch({
+                type: 'LOGOUT_USER',
+                payload: null
+            })
+        } catch (err: any) {
+            dispatch({
+                type: 'ERROR',
+                payload: err.response.data.error
+            })
+            
+        }
+    }
+
     async function getFlightSeats(id: any) {
         try {
             const res = await axios.get('http://localhost:8080/v1/api/flightSeats', { params: {id} });
@@ -146,6 +161,7 @@ export const GlobalProvider = (props: { children: any }) => {
             addAirport,
             getAllFlights,
             loginUser,
+            logoutUser,
             getFlightSeats,
             flightSearch,
         }}>
