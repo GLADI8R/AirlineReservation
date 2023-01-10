@@ -155,7 +155,23 @@ export const GlobalProvider = (props: { children: any }) => {
         } catch (err:any) {
             dispatch({
                 type: 'ERROR',
-                payload: err.responose.data.error
+                payload: err.response.data.error
+            })
+        }
+    }
+
+    async function bookTicket(id: any) {
+        try {
+            const res = await axios.get('http://localhost:8080/v1/api/book', {params: {id}});
+
+            dispatch({
+                type: 'BOOK',
+                payload: res.data
+            })
+        } catch (err: any) {
+            dispatch({
+                type: 'ERROR',
+                payload: err.response.data.error
             })
         }
     }
@@ -184,6 +200,7 @@ export const GlobalProvider = (props: { children: any }) => {
             getFlightSeats,
             flightSearch,
             getUserBookings,
+            bookTicket
         }}>
             {props.children}
         </GlobalContext.Provider>
