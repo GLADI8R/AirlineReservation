@@ -15,4 +15,6 @@ public interface BookingService {
 
     Ticket getUserTickets(User user, Booking booking);
 
+    Ticket saveBooking(Ticket t);
+
 }

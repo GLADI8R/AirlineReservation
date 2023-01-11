@@ -82,7 +82,7 @@ export const GlobalProvider = (props: { children: any }) => {
     }
 
     async function loginUser(email: String, password: String) {
-        
+
         try {
             const res = await axios.get('http://localhost:8080/v1/api/loginUser', { params: { email, password } });
             dispatch({
@@ -108,13 +108,33 @@ export const GlobalProvider = (props: { children: any }) => {
                 type: 'ERROR',
                 payload: err.response.data.error
             })
-            
+
+        }
+    }
+
+    async function signupUser(user: Object) {
+        const config = {
+            headers: {
+                'content-Type': 'application/json'
+            }
+        }
+        try {
+            const res = await axios.post('http://localhost:8080/v1/api/signup', user, config);
+            dispatch({
+                type: 'LOGIN_USER',
+                payload: res.data
+            })
+        } catch (err: any) {
+            dispatch({
+                type: 'ERROR',
+                payload: err.response.data.error
+            })
         }
     }
 
     async function getFlightSeats(id: any) {
         try {
-            const res = await axios.get('http://localhost:8080/v1/api/flightSeats', { params: {id} });
+            const res = await axios.get('http://localhost:8080/v1/api/flightSeats', { params: { id } });
             dispatch({
                 type: 'GET_FLIGHT_SEATS',
                 payload: res.data
@@ -130,7 +150,7 @@ export const GlobalProvider = (props: { children: any }) => {
     async function flightSearch(dept: String, arr: String, date: Date) {
 
         try {
-            const res = await axios.get('http://localhost:8080/v1/api/search', { params: {dept, arr, date} });
+            const res = await axios.get('http://localhost:8080/v1/api/search', { params: { dept, arr, date } });
             dispatch({
                 type: 'SEARCH_FLIGHTS',
                 payload: res.data
@@ -144,15 +164,15 @@ export const GlobalProvider = (props: { children: any }) => {
     }
 
     async function getUserBookings(id: any) {
-        if(id===null) return;
+        if (id === null) return;
         try {
-            const res = await axios.get('http://localhost:8080/v1/api/booking', {params: {id}});
-            
+            const res = await axios.get('http://localhost:8080/v1/api/booking', { params: { id } });
+
             dispatch({
                 type: 'USER_BOOKINGS',
                 payload: res.data
             })
-        } catch (err:any) {
+        } catch (err: any) {
             dispatch({
                 type: 'ERROR',
                 payload: err.response.data.error
@@ -162,7 +182,7 @@ export const GlobalProvider = (props: { children: any }) => {
 
     async function bookTicket(id: any) {
         try {
-            const res = await axios.get('http://localhost:8080/v1/api/book', {params: {id}});
+            const res = await axios.get('http://localhost:8080/v1/api/book', { params: { id } });
 
             dispatch({
                 type: 'BOOK',
@@ -197,6 +217,7 @@ export const GlobalProvider = (props: { children: any }) => {
             getAllFlights,
             loginUser,
             logoutUser,
+            signupUser,
             getFlightSeats,
             flightSearch,
             getUserBookings,

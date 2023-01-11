@@ -12,4 +12,6 @@ import java.util.List;
 public interface UserService {
 
     List<User> getAllUsers();
+
+    User addUser(User u);
 }

@@ -40,4 +40,8 @@ public class UserController {
 
         return null;
     }
+    @PostMapping("/signup")
+    public User signupUser(@RequestBody User u) {
+        return userService.addUser(u);
+    }
 }

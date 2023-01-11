@@ -2,6 +2,7 @@ package com.example.AirlineReservation.model;
 
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 
 import java.time.LocalDate;
@@ -12,8 +13,10 @@ import java.time.LocalTime;
 public class Ticket {
 
     @Id
-    private int ticket_id;
-    private int route_id, flight_id, seat_no;
+    @GeneratedValue
+    private Integer ticket_id;
+    private int route_id;
+    private Integer flight_id, seat_no;
     private String name, dept_code, arr_code;
     private LocalDate dept_date;
     private LocalTime dept_time;
@@ -22,7 +25,7 @@ public class Ticket {
     public Ticket() {
     }
 
-    public Ticket(int ticket_id, int route_id, int flight_id, int seat_no, String name, String dept_code, String arr_code, LocalDate dept_date, LocalTime dept_time, LocalDateTime booking_timestamp) {
+    public Ticket(Integer ticket_id, int route_id, Integer flight_id, Integer seat_no, String name, String dept_code, String arr_code, LocalDate dept_date, LocalTime dept_time, LocalDateTime booking_timestamp) {
         this.ticket_id = ticket_id;
         this.route_id = route_id;
         this.flight_id = flight_id;
@@ -34,12 +37,21 @@ public class Ticket {
         this.dept_time = dept_time;
         this.booking_timestamp = booking_timestamp;
     }
+    public Ticket(int route_id, Integer flight_id, String name, String dept_code, String arr_code, LocalDate dept_date, LocalTime dept_time) {
+        this.route_id = route_id;
+        this.flight_id = flight_id;
+        this.name = name;
+        this.dept_code = dept_code;
+        this.arr_code = arr_code;
+        this.dept_date = dept_date;
+        this.dept_time = dept_time;
+    }
 
-    public int getTicket_id() {
+    public Integer getTicket_id() {
         return ticket_id;
     }
 
-    public void setTicket_id(int ticket_id) {
+    public void setTicket_id(Integer ticket_id) {
         this.ticket_id = ticket_id;
     }
 
@@ -51,19 +63,19 @@ public class Ticket {
         this.route_id = route_id;
     }
 
-    public int getFlight_id() {
+    public Integer getFlight_id() {
         return flight_id;
     }
 
-    public void setFlight_id(int flight_id) {
+    public void setFlight_id(Integer flight_id) {
         this.flight_id = flight_id;
     }
 
-    public int getSeat_no() {
+    public Integer getSeat_no() {
         return seat_no;
     }
 
-    public void setSeat_no(int seat_no) {
+    public void setSeat_no(Integer seat_no) {
         this.seat_no = seat_no;
     }
 

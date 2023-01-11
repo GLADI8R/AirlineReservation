@@ -36,4 +36,9 @@ public class BookingServiceImpl implements BookingService{
         return ticketRepository.getUserTickets(user, booking);
     }
 
+    @Override
+    public Ticket saveBooking(Ticket t) {
+        return ticketRepository.save(t);
+    }
+
 }

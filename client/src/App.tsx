@@ -11,6 +11,7 @@ import Login from './components/Login/Login';
 import SearchFlights from './components/Flights/SearchFlights';
 import SearchFlightsList from './components/Flights/SearchFlightsList';
 import Logout from './components/Login/Logout';
+import Signup from './components/Login/Signup';
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
             <Route path="/flights" element={<Flights />} />
             <Route path="/addAirport" element={<AddAirport />} />
             <Route path="/login" element={<Login />} />
+            <Route path="/signup" element={<Signup />} />
             <Route path="/search" element={<SearchFlights />}></Route>
             <Route path="/searchFlights" element={< SearchFlightsList />} />
             <Route path="/logout" element={<Logout />} />

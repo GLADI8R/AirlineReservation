@@ -22,4 +22,8 @@ public class UserServiceImpl implements UserService {
         return userRepository.getAllUsers();
     }
 
+    public User addUser(User u) {
+        return userRepository.save(u);
+    }
+
 }

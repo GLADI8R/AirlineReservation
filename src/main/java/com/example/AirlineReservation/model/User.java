@@ -2,13 +2,15 @@ package com.example.AirlineReservation.model;
 
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 
 @Entity
 public class User {
 
     @Id
-    private int user_id;
+    @GeneratedValue
+    private Integer user_id;
     private String mobile;
     private String name, email, password;
     private Boolean admin;
@@ -16,7 +18,7 @@ public class User {
     public User() {
     }
 
-    public User(int user_id, String mobile, String name, String email, String password, Boolean admin) {
+    public User(Integer user_id, String mobile, String name, String email, String password, Boolean admin) {
         this.user_id = user_id;
         this.mobile = mobile;
         this.name = name;
@@ -25,11 +27,11 @@ public class User {
         this.admin = admin;
     }
 
-    public int getUser_id() {
+    public Integer getUser_id() {
         return user_id;
     }
 
-    public void setUser_id(int user_id) {
+    public void setUser_id(Integer user_id) {
         this.user_id = user_id;
     }
 

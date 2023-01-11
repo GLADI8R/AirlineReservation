@@ -13,6 +13,7 @@ const Navbar = () => {
                     <li><Link to="/airports">Airports</Link></li>
                     <li><Link to="/flights">Flights</Link></li>
                     <li><Link to="/login">Login</Link></li>
+                    <li><Link to="/signup">Sign Up</Link></li>
                 </ul>
             </nav>
         </Fragment>
