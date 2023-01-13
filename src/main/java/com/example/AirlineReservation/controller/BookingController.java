@@ -57,7 +57,7 @@ public class BookingController {
 
     @GetMapping("/book")
     public Ticket bookTicket(@RequestParam(value="id", required = true) Integer id,
-                                   @RequestParam(value="email", required=true) String email) {
+                                   @RequestParam(value="u_id", required=true) Integer u_id) {
         List<Flight> allFlights = flightService.getAllFlights();
         Flight flight = null;
 
@@ -72,7 +72,7 @@ public class BookingController {
         User user = null;
 
         for(User u: allUsers) {
-            if(Objects.equals(u.getEmail(), email)) {
+            if(Objects.equals(u.getUser_id(), u_id)) {
                 user = u;
                 break;
             }

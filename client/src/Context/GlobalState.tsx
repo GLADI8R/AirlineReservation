@@ -180,9 +180,10 @@ export const GlobalProvider = (props: { children: any }) => {
         }
     }
 
-    async function bookTicket(id: any) {
+    async function bookTicket(id: any, u_id: any) {
+        if(u_id===null) return; 
         try {
-            const res = await axios.get('http://localhost:8080/v1/api/book', { params: { id } });
+            const res = await axios.get('http://localhost:8080/v1/api/book', { params: { id, u_id } });
 
             dispatch({
                 type: 'BOOK',
